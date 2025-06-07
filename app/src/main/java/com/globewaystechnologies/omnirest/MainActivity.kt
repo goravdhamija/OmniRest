@@ -31,22 +31,15 @@ class MainActivity : ComponentActivity() {
         } else {
             stopService(intent)
         }
-        finish()
+       // finish()
+        finishAffinity()
+        overridePendingTransition(0, 0)
     }
+
+    override fun onPause() {
+        super.onPause()
+        overridePendingTransition(0, 0)
+    }
+
 }
 
-@Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
-    Text(
-        text = "Hello $name!",
-        modifier = modifier
-    )
-}
-
-@Preview(showBackground = true)
-@Composable
-fun GreetingPreview() {
-    OmniRestTheme {
-        Greeting("Android")
-    }
-}
